@@ -2,7 +2,7 @@
  * grunt-contrib-coffee
  * http://gruntjs.com/
  *
- * Copyright (c) 2012 Eric Woroshow, contributors
+ * Copyright (c) 2013 Eric Woroshow, contributors
  * Licensed under the MIT license.
  */
 
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 
   var appendFooter = function (output, paths) {
     // Add sourceMappingURL to file footer
-    output.js = output.js + '\n/*\n//@ sourceMappingURL=' + paths.mapFileName + '\n*/';
+    output.js = output.js + '\n/*\n//# sourceMappingURL=' + paths.mapFileName + '\n*/';
   };
 
   var concatInput = function (files, options) {
@@ -222,7 +222,7 @@ module.exports = function(grunt) {
       warnOnEmptyFile(path);
     } else {
       grunt.file.write(path, output);
-      grunt.log.writeln('File ' + path + ' created.');
+      grunt.log.writeln('File ' + path.cyan + ' created.');
     }
   };
 };
